@@ -25,6 +25,7 @@ export const loggingMiddleware = (
 	next: NextFunction,
 ) => {
 	console.log(`${currentTime}: ${req.originalUrl}`);
+	console.log(req.body);
 	next();
 };
 
@@ -59,8 +60,7 @@ export const authMiddleware = (
 		res.cookie("access_token", newAccessToken, {
 			httpOnly: true,
 			secure: true,
-			sameSite: "strict",
-			maxAge: 60 * 10000,
+			maxAge: 60 * 1000,
 		});
 		req.user = (user as UserIdType).id;
 		next();

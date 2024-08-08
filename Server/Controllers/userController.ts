@@ -33,6 +33,9 @@ export const getUserController = async (
 export const userLoginController = async (req: Request, res: Response) => {
 	const { email, password } = req.body;
 
+	if (!email && !password)
+		res.status(400).json({ message: "no email/password provided" });
+
 	const userData = await userLoginModel(email);
 	if (!userData) return res.sendStatus(403);
 
@@ -53,14 +56,12 @@ export const userLoginController = async (req: Request, res: Response) => {
 		.cookie("access_token", accessToken, {
 			httpOnly: true,
 			secure: true,
-			sameSite: "strict",
-			maxAge: 60 * 10000,
+			maxAge: 60 * 1000,
 		})
 		.cookie("refresh_token", refreshToken, {
 			httpOnly: true,
 			secure: true,
-			sameSite: "strict",
-			maxAge: 5 * 60 * 10000,
+			maxAge: 5 * 60 * 1000,
 		})
 		.header("Access-Control-Allow-Credentials", "true")
 		.json({ status: "success" });
