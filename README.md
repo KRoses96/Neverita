@@ -47,7 +47,12 @@ From the '\Client\Neverita' folder, execute 'npm run dev' to launch the front-en
 
 # <u>Refactor</u>
 
-
+- Codebase Conversion to TypeScript
+- Implementation of Unit and Integration Testing
+- Improved Schema
+- Switched from Sequelize to Prisma
+- Changed the css to be more mobile friendly
+- Added Flask MicroService to provide food/diet information using Pyfood
 
 ---
 
@@ -55,7 +60,7 @@ From the '\Client\Neverita' folder, execute 'npm run dev' to launch the front-en
 
 Jesús Díaz - [JayDDL · GitHub](https://github.com/JayDDL)
 
-#### Refactor:
+### Refactor:
 
 Manuel Rosa - [KRoses96 (Manuel Rosa) · GitHub](https://github.com/KRoses96)
 
